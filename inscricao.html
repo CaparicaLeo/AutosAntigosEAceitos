@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inscrição — 1º Autos Antigos e Aceitos</title>
+<link rel="icon" href="assets/emblem.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="form-page">
+
+<nav class="site-nav">
+  <a href="index.html" class="brand">
+    <img src="assets/emblem.png" alt="Emblema Os Templários nº 2819">
+    <span class="brand-text"><b>Os Templários nº 2819</b><span>Encontro de Autos Antigos</span></span>
+  </a>
+  <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false"><span></span></button>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html#sobre">O evento</a>
+    <a href="index.html#local">Local</a>
+    <a href="inscricao.html" class="nav-cta">Inscrição</a>
+  </div>
+</nav>
+
+<header class="form-hero hero">
+  <div class="hero-columns" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+
+  <div class="form-wrap">
+    <div class="form-intro">
+      <span class="eyebrow">17/10 · 10h às 16h · Curitiba - PR</span>
+      <h1>Inscreva seu carro</h1>
+      <p>Preencha os dados abaixo pra garantir sua vaga na exposição. Leva menos de dois minutos.</p>
+    </div>
+
+    <div class="ticket">
+      <div class="ticket-head">
+        <b>Ficha de inscrição</b>
+        <span>Nº ---</span>
+      </div>
+
+      <div class="form-alert" id="formAlert"></div>
+
+      <form id="registrationForm" novalidate>
+        <fieldset class="field-group">
+          <legend>Seus dados</legend>
+          <div class="field-row">
+            <div class="field" data-field="nome">
+              <label for="nome">Nome completo <span class="req">*</span></label>
+              <input type="text" id="nome" name="nome" autocomplete="name" required>
+              <span class="error-msg">Digite seu nome completo.</span>
+            </div>
+            <div class="field" data-field="telefone">
+              <label for="telefone">WhatsApp <span class="req">*</span></label>
+              <input type="tel" id="telefone" name="telefone" placeholder="(41) 90000-0000" autocomplete="tel" required>
+              <span class="error-msg">Digite um telefone válido.</span>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field" data-field="email">
+              <label for="email">E-mail <span class="req">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+              <span class="error-msg">Digite um e-mail válido.</span>
+            </div>
+            <div class="field" data-field="cidade">
+              <label for="cidade">Cidade <span class="req">*</span></label>
+              <input type="text" id="cidade" name="cidade" autocomplete="address-level2" required>
+              <span class="error-msg">Informe sua cidade.</span>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="field-group">
+          <legend>Seu veículo</legend>
+          <div class="field-row">
+            <div class="field" data-field="modelo">
+              <label for="modelo">Modelo <span class="req">*</span></label>
+              <input type="text" id="modelo" name="modelo" placeholder="Ex: Ford Maverick GT" required>
+              <span class="error-msg">Informe o modelo do carro.</span>
+            </div>
+            <div class="field" data-field="ano">
+              <label for="ano">Ano <span class="req">*</span></label>
+              <input type="number" id="ano" name="ano" placeholder="Ex: 1974" min="1900" max="2026" required>
+              <span class="error-msg">Informe um ano válido.</span>
+            </div>
+          </div>
+          <div class="field-row thirds">
+            <div class="field" data-field="cor">
+              <label for="cor">Cor</label>
+              <input type="text" id="cor" name="cor" placeholder="Ex: Azul">
+            </div>
+            <div class="field" data-field="placa">
+              <label for="placa">Placa</label>
+              <input type="text" id="placa" name="placa" placeholder="Opcional">
+            </div>
+            <div class="field" data-field="acompanhantes">
+              <label for="acompanhantes">Acompanhantes</label>
+              <input type="number" id="acompanhantes" name="acompanhantes" min="0" value="0">
+            </div>
+          </div>
+          <div class="field" data-field="observacoes">
+            <label for="observacoes">Observações</label>
+            <textarea id="observacoes" name="observacoes" placeholder="Alguma informação extra sobre o carro ou necessidade especial de espaço?"></textarea>
+          </div>
+        </fieldset>
+
+        <label class="checkline">
+          <input type="checkbox" id="termos" name="termos" required>
+          <span>Concordo em expor meu veículo durante todo o horário do evento e estou ciente de que a organização não se responsabiliza por danos ao veículo.
+          <span class="error-msg" id="termosError"></span></span>
+        </label>
+      </form>
+
+      <div class="form-actions">
+        <button type="submit" form="registrationForm" class="btn btn-primary submit-btn" id="submitBtn">
+          <span id="submitLabel">Confirmar inscrição</span>
+        </button>
+        <p class="form-note">Você vai receber a confirmação por WhatsApp ou e-mail.</p>
+      </div>
+
+      <div class="success-view" id="successView">
+        <div class="stamp">INSCRITO<br>17/10</div>
+        <h2>Inscrição confirmada!</h2>
+        <p>Seu carro já está na lista da exposição. Guarde o código abaixo — ele pode ser pedido na entrada.</p>
+        <span class="success-code" id="successCode">#0000</span>
+        <div style="margin-top:28px;">
+          <a href="index.html" class="btn btn-outline"><span>Voltar para o início</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<footer class="site-footer">
+  <div class="footer-bottom" style="max-width: var(--container); margin: 0 auto;">
+    <span>© 2026 Os Templários nº 2819</span>
+    <a href="index.html">Voltar ao início</a>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script src="js/inscricao.js"></script>
+</body>
+</html>

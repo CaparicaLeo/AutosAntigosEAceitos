@@ -1,0 +1,121 @@
+/* =================================================================
+   PAINEL ADMIN — utilitário, mesma paleta do site, menos decoração
+   ================================================================= */
+body.admin-body {
+  background: var(--cream-2);
+}
+
+/* ---- tela de login ---- */
+.login-screen {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+}
+.login-card {
+  width: 100%; max-width: 380px;
+  background: var(--cream); border: 3px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--ink);
+  padding: 36px 32px;
+}
+.login-card .brand { justify-content: center; margin-bottom: 22px; text-decoration: none;}
+.login-card h1 { font-size: 26px; color: var(--ink); text-align: center; margin-bottom: 6px; }
+.login-card p.sub { text-align: center; font-family: var(--label); font-size: 13.5px; color: var(--steel-dark); margin-bottom: 26px; }
+.login-card .field { margin-bottom: 16px; }
+.login-card .btn { width: 100%; justify-content: center; margin-top: 6px; }
+.login-error {
+  display: none; background: #F7E3DF; border: 2px solid #B23A2C; color: #7A241A;
+  font-family: var(--label); font-size: 13px; padding: 10px 12px; margin-bottom: 16px;
+}
+.login-error.show { display: block; }
+.login-hint { margin-top: 18px; font-size: 12px; color: var(--steel-dark); font-family: var(--label); text-align: center; }
+
+/* ---- shell do painel ---- */
+.admin-shell { display: none; min-height: 100vh; }
+.admin-shell.show { display: block; }
+
+.admin-topbar {
+  background: var(--ink); color: var(--cream);
+  padding: 14px var(--edge);
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 3px solid var(--ember);
+}
+.admin-topbar .brand-text b { color: var(--cream); }
+.admin-topbar .brand img { border: 2px solid var(--cream); }
+.admin-logout {
+  background: none; border: 2px solid rgba(241,231,214,.4); color: var(--cream);
+  font-family: var(--label); font-size: 13px; letter-spacing: .04em; padding: 9px 16px;
+}
+.admin-logout:hover { border-color: var(--cream); }
+
+.admin-main { padding: 30px var(--edge) 70px; max-width: 1300px; margin: 0 auto; }
+
+.admin-head { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; }
+.admin-head h1 { font-size: 30px; color: var(--ink); }
+.admin-head p { font-family: var(--label); font-size: 13.5px; color: var(--steel-dark); margin-top: 4px; }
+.updated-at { font-family: var(--label); font-size: 12.5px; color: var(--steel-dark); }
+
+/* stat cards */
+.stat-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+  margin-bottom: 30px;
+}
+.stat-card {
+  background: var(--cream); border: 2px solid var(--ink); padding: 18px 20px;
+}
+.stat-card .stat-label { font-family: var(--label); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--steel-dark); }
+.stat-card .stat-value { font-family: var(--display); font-size: 34px; color: var(--ink); margin-top: 4px; }
+@media (max-width: 900px) { .stat-grid { grid-template-columns: 1fr 1fr; } }
+
+/* toolbar */
+.toolbar {
+  display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+  background: var(--cream); border: 2px solid var(--ink); padding: 14px 16px; margin-bottom: 18px;
+}
+.toolbar input[type="search"], .toolbar select {
+  font-family: var(--body); font-size: 14.5px; padding: 9px 12px; border: 2px solid var(--ink); background: #fff;
+}
+.toolbar input[type="search"] { flex: 1; min-width: 180px; }
+.toolbar .spacer { flex: 1; }
+.toolbar .btn-small {
+  font-family: var(--label); font-size: 13px; font-weight: 600; letter-spacing: .03em;
+  padding: 9px 16px; border: 2px solid var(--ink); background: transparent; color: var(--ink);
+}
+.toolbar .btn-small:hover { background: var(--ink); color: var(--cream); }
+.toolbar .btn-small.primary { background: var(--ember); border-color: var(--ember-dark); }
+.toolbar .btn-small.primary:hover { background: var(--ember-dark); color: var(--cream); }
+
+/* table */
+.table-wrap {
+  background: var(--cream); border: 2px solid var(--ink); overflow-x: auto;
+}
+table.data-table { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 920px; }
+table.data-table thead th {
+  text-align: left; font-family: var(--label); font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--cream); background: var(--navy); padding: 12px 14px; white-space: nowrap;
+  position: sticky; top: 0;
+}
+table.data-table tbody td { padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+table.data-table tbody tr:hover { background: rgba(76,124,147,.08); }
+table.data-table td.num { font-family: var(--label); }
+.badge {
+  display: inline-block; font-family: var(--label); font-size: 11px; letter-spacing: .04em;
+  padding: 3px 8px; border: 1px solid var(--steel-dark); color: var(--steel-dark);
+}
+.row-actions button {
+  background: none; border: none; color: #B23A2C; font-family: var(--label); font-size: 13px;
+  text-decoration: underline; padding: 0;
+}
+
+.table-empty, .table-loading {
+  padding: 60px 20px; text-align: center; font-family: var(--label); color: var(--steel-dark);
+}
+.table-loading .spinner {
+  width: 30px; height: 30px; border: 3px solid var(--line); border-top-color: var(--ember);
+  border-radius: 50%; margin: 0 auto 14px; animation: spin .8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.setup-note {
+  margin-top: 26px; padding: 16px 18px; border: 2px dashed var(--steel-dark);
+  font-family: var(--label); font-size: 13px; color: var(--steel-dark); line-height: 1.6;
+}
+.setup-note b { color: var(--ink); }

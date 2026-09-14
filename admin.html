@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel administrativo — Autos Antigos e Aceitos</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/emblem.png">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+
+<!-- TELA DE LOGIN -->
+<div class="login-screen" id="loginScreen">
+  <div class="login-card">
+    <a href="index.html" class="brand">
+      <img src="assets/emblem.png" alt="Emblema Os Templários nº 2819">
+    </a>
+    <h1>Painel administrativo</h1>
+    <p class="sub">Consulta rápida das inscrições do encontro</p>
+
+    <div class="login-error" id="loginError">Usuário ou senha incorretos.</div>
+
+    <form id="loginForm">
+      <div class="field">
+        <label for="usuario">Usuário</label>
+        <input type="text" id="usuario" name="usuario" autocomplete="username" required>
+      </div>
+      <div class="field">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" autocomplete="current-password" required>
+      </div>
+      <button type="submit" class="btn btn-primary"><span id="loginLabel">Entrar</span></button>
+    </form>
+    <p class="login-hint">Enquanto o backend não valida o login de verdade, qualquer usuário/senha preenchidos entram no modo de demonstração.</p>
+  </div>
+</div>
+
+<!-- PAINEL -->
+<div class="admin-shell" id="adminShell">
+  <div class="admin-topbar">
+    <a href="index.html" class="brand">
+      <img src="assets/emblem.png" alt="Emblema Os Templários nº 2819">
+      <span class="brand-text"><b>Os Templários nº 2819</b><span>Painel administrativo</span></span>
+    </a>
+    <button class="admin-logout" id="logoutBtn">Sair</button>
+  </div>
+
+  <main class="admin-main">
+    <div class="admin-head">
+      <div>
+        <h1>Inscrições</h1>
+        <p>Consulta rápida de quem já garantiu vaga no encontro</p>
+      </div>
+      <span class="updated-at" id="updatedAt"></span>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-label">Total de inscrições</div>
+        <div class="stat-value" id="statTotal">—</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Pessoas esperadas</div>
+        <div class="stat-value" id="statPessoas">—</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Cidades diferentes</div>
+        <div class="stat-value" id="statCidades">—</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Inscritas hoje</div>
+        <div class="stat-value" id="statHoje">—</div>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <input type="search" id="searchInput" placeholder="Buscar por nome, modelo, cidade…">
+      <select id="cidadeFilter">
+        <option value="">Todas as cidades</option>
+      </select>
+      <div class="spacer"></div>
+      <button class="btn-small" id="refreshBtn">Atualizar</button>
+      <button class="btn-small primary" id="exportBtn">Exportar CSV</button>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table" id="dataTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nome</th>
+            <th>WhatsApp</th>
+            <th>Cidade</th>
+            <th>Veículo</th>
+            <th>Ano</th>
+            <th>Cor</th>
+            <th>Acomp.</th>
+            <th>Inscrito em</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+      <div class="table-loading" id="tableLoading">
+        <div class="spinner"></div>
+        Carregando inscrições…
+      </div>
+      <div class="table-empty" id="tableEmpty" style="display:none;">
+        Nenhuma inscrição encontrada com esse filtro.
+      </div>
+    </div>
+
+    <div class="setup-note">
+      <b>Nota para quem for ligar o backend:</b> este painel lê os dados de <code>CONFIG.ENDPOINTS.LISTAR_INSCRICOES</code> e remove itens em <code>CONFIG.ENDPOINTS.REMOVER_INSCRICAO/:id</code> (arquivo <code>js/config.js</code>). Enquanto <code>CONFIG.MOCK_MODE</code> estiver <code>true</code>, os dados abaixo são fictícios e só existem nesta sessão do navegador. O login também é só uma simulação — troque <code>js/admin.js</code> para validar contra <code>CONFIG.ENDPOINTS.LOGIN_ADMIN</code> e guardar o token retornado.
+    </div>
+  </main>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
