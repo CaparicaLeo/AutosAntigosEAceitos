@@ -115,11 +115,11 @@ body::before {
 .nav-cta {
   font-family: var(--label); font-weight: 600; font-size: 13.5px;
   letter-spacing: .04em;
-  background: var(--ink); color: var(--cream);
+  background: var(--ember-dark); color: var(--cream);
   padding: 10px 20px; text-decoration: none;
-  border: 2px solid var(--ink);
+  border: 2px solid var(--ember-dark);
 }
-.nav-cta:hover { background: transparent; color: var(--ink); }
+.nav-cta:hover { background: transparent; color: var(--ember-dark); }
 .nav-toggle { display: none; }
 
 @media (max-width: 760px) {
