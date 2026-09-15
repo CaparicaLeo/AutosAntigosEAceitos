@@ -1,36 +1,30 @@
 /**
  * CONFIGURAÇÃO DA API
  * -----------------------------------------------------------------
- * Troque BASE_URL pela URL do backend quando ele estiver pronto.
- * Os caminhos abaixo são sugestões — ajuste para bater com os
- * endpoints reais que você vai me passar.
+ * Backend: evento_maconaria (Laravel / api.php).
+ * Rotas ativas: POST /login · POST /visitors (público) ·
+ * GET/PUT/DELETE /visitors (auth:sanctum, Bearer token).
  * -----------------------------------------------------------------
  */
 const CONFIG = {
-  BASE_URL: "https://SEU-BACKEND-AQUI.com/api",
+  BASE_URL: "https://autosantigoseaceitosbackend.onrender.com/api",
 
   ENDPOINTS: {
-    // POST — envia uma nova inscrição. Body esperado: ver js/inscricao.js
-    CRIAR_INSCRICAO: "/inscricoes",
+    // POST — envia uma nova inscrição de visitante.
+    // Body: { name, email, phone_number, additional_visitors: [] }
+    CRIAR_INSCRICAO: "/visitors",
 
-    // GET — lista todas as inscrições (painel admin)
-    LISTAR_INSCRICOES: "/inscricoes",
+    // GET — lista todas as inscrições (painel admin, autenticado)
+    LISTAR_INSCRICOES: "/visitors",
 
-    // GET — estatísticas rápidas (total, por cidade, etc). Opcional:
-    // se o backend não tiver essa rota, o admin calcula localmente
-    // a partir de LISTAR_INSCRICOES.
-    ESTATISTICAS: "/inscricoes/stats",
+    // DELETE /visitors/:id — remove uma inscrição (admin)
+    REMOVER_INSCRICAO: "/visitors",
 
-    // DELETE /inscricoes/:id — remove uma inscrição (admin)
-    REMOVER_INSCRICAO: "/inscricoes",
-
-    // POST — login do admin. Body: { usuario, senha }
-    // Espera receber algo como { token: "..." }
-    LOGIN_ADMIN: "/admin/login",
+    // POST — login do admin. Body: { email, password }
+    // Retorna { token, user }
+    LOGIN_ADMIN: "/login",
   },
 
-  // Enquanto o backend não está no ar, MOCK_MODE = true faz o site
-  // funcionar com dados fictícios em memória (não persiste ao recarregar
-  // a página). Troque para false assim que os endpoints reais existirem.
-  MOCK_MODE: true,
+  // Backend no ar; desativando o modo de demonstração.
+  MOCK_MODE: false,
 };

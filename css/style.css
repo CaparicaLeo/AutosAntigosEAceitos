@@ -241,14 +241,14 @@ body::before {
   border: 2px solid var(--ink);
   position: relative; overflow: hidden;
 }
-.btn-primary { background-color: var(--ink); color: var(--cream); border-color: var(--ink); }
+.btn-primary { background-color: var(--ember-dark); color: var(--cream); border-color: var(--ember-dark); }
 .btn-primary::before {
   content:""; position: absolute; inset: 0; background: var(--cream);
   transform: translateX(-101%); transition: transform .32s var(--ease); z-index: 0;
 }
 .btn-primary span { color: inherit; position: relative; z-index: 1; transition: color .32s var(--ease); }
 .btn-primary:hover::before { transform: translateX(0); }
-.btn-primary:hover span { color: var(--ink); }
+.btn-primary:hover span { color: var(--ember-dark); }
 
 .btn-outline { background: transparent; color: var(--ink); }
 .btn-outline:hover { background: var(--ink); color: var(--cream); }

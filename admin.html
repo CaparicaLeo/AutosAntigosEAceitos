@@ -24,8 +24,8 @@
 
     <form id="loginForm">
       <div class="field">
-        <label for="usuario">Usuário</label>
-        <input type="text" id="usuario" name="usuario" autocomplete="username" required>
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" autocomplete="username" required>
       </div>
       <div class="field">
         <label for="senha">Senha</label>
@@ -33,7 +33,7 @@
       </div>
       <button type="submit" class="btn btn-primary"><span id="loginLabel">Entrar</span></button>
     </form>
-    <p class="login-hint">Enquanto o backend não valida o login de verdade, qualquer usuário/senha preenchidos entram no modo de demonstração.</p>
+    <p class="login-hint">Login validado contra a API oficial.</p>
   </div>
 </div>
 
@@ -66,20 +66,13 @@
         <div class="stat-value" id="statPessoas">—</div>
       </div>
       <div class="stat-card">
-        <div class="stat-label">Cidades diferentes</div>
-        <div class="stat-value" id="statCidades">—</div>
-      </div>
-      <div class="stat-card">
         <div class="stat-label">Inscritas hoje</div>
         <div class="stat-value" id="statHoje">—</div>
       </div>
     </div>
 
     <div class="toolbar">
-      <input type="search" id="searchInput" placeholder="Buscar por nome, modelo, cidade…">
-      <select id="cidadeFilter">
-        <option value="">Todas as cidades</option>
-      </select>
+      <input type="search" id="searchInput" placeholder="Buscar por nome, e-mail…">
       <div class="spacer"></div>
       <button class="btn-small" id="refreshBtn">Atualizar</button>
       <button class="btn-small primary" id="exportBtn">Exportar CSV</button>
@@ -91,12 +84,9 @@
           <tr>
             <th>#</th>
             <th>Nome</th>
+            <th>E-mail</th>
             <th>WhatsApp</th>
-            <th>Cidade</th>
-            <th>Veículo</th>
-            <th>Ano</th>
-            <th>Cor</th>
-            <th>Acomp.</th>
+            <th>Acompanhantes</th>
             <th>Inscrito em</th>
             <th></th>
           </tr>
@@ -113,7 +103,7 @@
     </div>
 
     <div class="setup-note">
-      <b>Nota para quem for ligar o backend:</b> este painel lê os dados de <code>CONFIG.ENDPOINTS.LISTAR_INSCRICOES</code> e remove itens em <code>CONFIG.ENDPOINTS.REMOVER_INSCRICAO/:id</code> (arquivo <code>js/config.js</code>). Enquanto <code>CONFIG.MOCK_MODE</code> estiver <code>true</code>, os dados abaixo são fictícios e só existem nesta sessão do navegador. O login também é só uma simulação — troque <code>js/admin.js</code> para validar contra <code>CONFIG.ENDPOINTS.LOGIN_ADMIN</code> e guardar o token retornado.
+      <b>Backend conectado:</b> o painel autentica em <code>CONFIG.ENDPOINTS.LOGIN_ADMIN</code> (e-mail + senha) e guarda o token recebido para listar (<code>GET /visitors</code>) e remover (<code>DELETE /visitors/:id</code>) inscrições. Tudo configurado em <code>js/config.js</code>.
     </div>
   </main>
 </div>

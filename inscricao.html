@@ -28,8 +28,8 @@
   <div class="form-wrap">
     <div class="form-intro">
       <span class="eyebrow">17/10 · 10h às 16h · Curitiba - PR</span>
-      <h1>Inscreva seu carro</h1>
-      <p>Preencha os dados abaixo pra garantir sua vaga na exposição. Leva menos de dois minutos.</p>
+      <h1>Inscreva-se no encontro</h1>
+      <p>Preencha seus dados abaixo pra garantir seu lugar no encontro. Leva menos de dois minutos.</p>
     </div>
 
     <div class="ticket">
@@ -61,51 +61,17 @@
               <input type="email" id="email" name="email" autocomplete="email" required>
               <span class="error-msg">Digite um e-mail válido.</span>
             </div>
-            <div class="field" data-field="cidade">
-              <label for="cidade">Cidade <span class="req">*</span></label>
-              <input type="text" id="cidade" name="cidade" autocomplete="address-level2" required>
-              <span class="error-msg">Informe sua cidade.</span>
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset class="field-group">
-          <legend>Seu veículo</legend>
-          <div class="field-row">
-            <div class="field" data-field="modelo">
-              <label for="modelo">Modelo <span class="req">*</span></label>
-              <input type="text" id="modelo" name="modelo" placeholder="Ex: Ford Maverick GT" required>
-              <span class="error-msg">Informe o modelo do carro.</span>
-            </div>
-            <div class="field" data-field="ano">
-              <label for="ano">Ano <span class="req">*</span></label>
-              <input type="number" id="ano" name="ano" placeholder="Ex: 1974" min="1900" max="2026" required>
-              <span class="error-msg">Informe um ano válido.</span>
-            </div>
-          </div>
-          <div class="field-row thirds">
-            <div class="field" data-field="cor">
-              <label for="cor">Cor</label>
-              <input type="text" id="cor" name="cor" placeholder="Ex: Azul">
-            </div>
-            <div class="field" data-field="placa">
-              <label for="placa">Placa</label>
-              <input type="text" id="placa" name="placa" placeholder="Opcional">
-            </div>
             <div class="field" data-field="acompanhantes">
               <label for="acompanhantes">Acompanhantes</label>
-              <input type="number" id="acompanhantes" name="acompanhantes" min="0" value="0">
+              <input type="text" id="acompanhantes" name="acompanhantes" placeholder="Nomes separados por vírgula (opcional)">
+              <span class="error-msg">Separe os acompanhantes por vírgula.</span>
             </div>
-          </div>
-          <div class="field" data-field="observacoes">
-            <label for="observacoes">Observações</label>
-            <textarea id="observacoes" name="observacoes" placeholder="Alguma informação extra sobre o carro ou necessidade especial de espaço?"></textarea>
           </div>
         </fieldset>
 
         <label class="checkline">
           <input type="checkbox" id="termos" name="termos" required>
-          <span>Concordo em expor meu veículo durante todo o horário do evento e estou ciente de que a organização não se responsabiliza por danos ao veículo.
+          <span>Confirmo que os dados informados são verdadeiros e estou ciente de que a organização pode entrar em contato pelos canais informados.
           <span class="error-msg" id="termosError"></span></span>
         </label>
       </form>
@@ -120,7 +86,7 @@
       <div class="success-view" id="successView">
         <div class="stamp">INSCRITO<br>17/10</div>
         <h2>Inscrição confirmada!</h2>
-        <p>Seu carro já está na lista da exposição. Guarde o código abaixo — ele pode ser pedido na entrada.</p>
+        <p>Você já está na lista do encontro. Guarde o código abaixo — ele pode ser pedido na entrada.</p>
         <span class="success-code" id="successCode">#0000</span>
         <div style="margin-top:28px;">
           <a href="index.html" class="btn btn-outline"><span>Voltar para o início</span></a>

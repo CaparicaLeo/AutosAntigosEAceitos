@@ -12,11 +12,9 @@ const VALIDATORS = {
   nome: v => v.trim().length >= 3,
   telefone: v => v.replace(/\D/g, '').length >= 10,
   email: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
-  cidade: v => v.trim().length >= 2,
-  modelo: v => v.trim().length >= 2,
-  ano: v => {
-    const n = Number(v);
-    return n >= 1900 && n <= 2026;
+  acompanhantes: v => {
+    if (!v.trim()) return true;
+    return v.split(',').map(s => s.trim()).some(Boolean) && v.split(',').every(s => !s.trim() || s.trim().length >= 2);
   },
 };
 
@@ -53,12 +51,19 @@ function hideAlert() {
 }
 
 function collectPayload() {
-  const data = Object.fromEntries(new FormData(form).entries());
-  data.acompanhantes = Number(data.acompanhantes || 0);
-  data.ano = Number(data.ano);
-  data.termos = !!termosCheckbox.checked;
-  data.origem = 'site';
-  return data;
+  const formData = new FormData(form);
+
+  const additionalVisitors = (formData.get('acompanhantes') || '')
+    .split(',')
+    .map(s => s.trim())
+    .filter(Boolean);
+
+  return {
+    name: formData.get('nome').trim(),
+    email: formData.get('email').trim(),
+    phone_number: formData.get('telefone').trim(),
+    additional_visitors: additionalVisitors,
+  };
 }
 
 async function submitInscricao(payload) {
