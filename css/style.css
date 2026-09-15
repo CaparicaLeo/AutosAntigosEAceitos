@@ -183,7 +183,12 @@ body::before {
   padding-bottom: 0;
 }
 .hero-copy {
-  padding: 20px 0 48px;
+  position: relative;
+  z-index: 2;
+  padding: 30px 32px 46px;
+  margin: 20px 0 48px 0;
+  background: rgba(241, 231, 214, .95);
+  box-shadow: 0 0 0 3px var(--ink);
   opacity: 0;
   animation: copy-in .8s var(--ease) .5s forwards;
 }
@@ -430,7 +435,13 @@ body::before {
   max-width: 760px; margin: 0 auto;
   padding: 30px 0 90px;
 }
-.form-intro { text-align: center; margin-bottom: 34px; }
+.form-intro {
+  text-align: center; margin: 0 auto 34px; max-width: 640px;
+  background: rgba(241, 231, 214, .95);
+  box-shadow: 0 0 0 3px var(--ink);
+  padding: 30px 30px 34px;
+  position: relative; z-index: 2;
+}
 .form-intro .eyebrow { justify-content: center; }
 .form-intro h1 { font-size: clamp(34px, 5vw, 54px); color: var(--ink); }
 .form-intro p { font-family: var(--label); color: var(--navy); max-width: 48ch; margin: 14px auto 0; }
